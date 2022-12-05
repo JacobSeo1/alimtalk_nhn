@@ -23,7 +23,7 @@ def send_message(phone):
 
     # 예약내역 불러와서 변환
     phone = send_message['phone'].replace("-", "")
-    
+
     headers = {
         "Contenc-type": "application/json; charset=utf-8",
         "x-ncp-apigw-timestamp": timestamp,
@@ -37,7 +37,7 @@ def send_message(phone):
         "messages":[
             {
                 "countryCode":"string", #국가번호
-                "to":phone.toString(), #수신자 번호
+                "to":phone, #수신자 번호
                 "title":"string", #제목
                 "content":"string", #내용
                 # headerContent:"string"
