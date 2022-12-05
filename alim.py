@@ -23,11 +23,7 @@ def send_message(phone):
 
     # 예약내역 불러와서 변환
     phone = send_message['phone'].replace("-", "")
-    name = send_message['name']
-    booking_date = format_datetime(send_message['date'])
-
-    message = "{}님 bernini 예약이 승인되었습니다.\n예약일자: {}".format(name, booking_date)
-
+    
     headers = {
         "Contenc-type": "application/json; charset=utf-8",
         "x-ncp-apigw-timestamp": timestamp,
@@ -41,7 +37,7 @@ def send_message(phone):
         "messages":[
             {
                 "countryCode":"string", #국가번호
-                "to":user_phone_number.toString(), #수신자 번호
+                "to":phone.toString(), #수신자 번호
                 "title":"string", #제목
                 "content":"string", #내용
                 # headerContent:"string"
